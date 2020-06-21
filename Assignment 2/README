@@ -1,0 +1,62 @@
+Name: Anthony Wong
+Class: Computer Science 360 Operating System
+Professor: Cameron Macdonell
+Assignment 2
+Due Date: Nov,17,2017
+
+************************************
+OverView
+************************************
+The Program is a server script which recieve a username from
+the client and returns a process name along count of the process.
+It will also log to standard out however,if a flag option of -v is specified
+along with a filename. The log shall be written toward a file with that filename instead.
+ 
+************************************
+File Purpose
+************************************
+
+************************************
+node.c
+	The node class
+	makenode: create a node
+	sortnode: sort the node list in alphabetical order
+	freenode: free a node list
+	
+************************************
+node.h
+	Contains the node struct along with
+	Prototypes 
+
+************************************
+ps.c
+	The PS functions
+	ps: takes a node address and username
+	and return a list of process's run by 
+	the user and count of the process by using
+	parse;
+	parse: goes through every file and populate
+		the node which matches the username
+		
+************************************
+ps.h
+	Contains the ps prototypes
+************************************
+ps_server.c
+The Server
+************************************
+BUG/Challanges
+************************************
+Memory erros
+
+************************************
+LINKS
+************************************
+Man pages
+http://man7.org/linux/man-pages/man5/proc.5.html
+http://www.zentut.com/c-tutorial/c-linked-list/
+https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtpc1/unixsock.html
+************************************
+Credits / Special Thanks
+************************************
+Dylan - helping me with sortnode and server >  (C GUY)

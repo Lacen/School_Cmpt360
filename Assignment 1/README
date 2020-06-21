@@ -1,0 +1,100 @@
+*****************************************
+Name: Anthony Wong
+Class: Computer Science 360 Operating System
+Professor: Cameron Macdonell
+Assignment 1
+Due Date: October,13,2017
+******************************************
+
+******************************************
+OverView
+******************************************
+
+The Program is simply a replica of find "FileName".
+The program opens the directory using opendir and for every subdirectory that
+is not a . directory(Hidden directory or directory beginning with .) it
+creates a child process using fork which then open that sub directory and
+using a pipe it writes every file name that is not a . directory or file
+using the system call write. Which then thhe parent using read will store
+that information within a binary search tree and finally it will print out
+the filenames in alphabetical order and the free.
+
+*************************************
+FILE PURPOSE
+*************************************
+
+*************************************
+MYFIND.c
+
+	Myfind.c is the main file in which most of the
+	opendir,readdir,forking,piping,storing are done
+
+*************************************
+Tree.H
+	The Header files for Tree.c which contains the prototypes and header
+	guards
+*************************************
+Tree.c
+	This is the C file which has the function to create,parse,print and
+	free the binary search tree.
+	It contains the following Methods
+	make_node: which create a node and returns the node
+
+	insert_node: which inserts a node into your created node from	make_node
+
+	parse: parse a string with the delmintor / and then appending it to
+	the node
+
+	print_tree: prints the node information within the tree in alphabetical ordering
+
+	delete_tree: delete each node within the tree
+
+
+
+***********************************************************
+BUGS/Challanges
+***********************************************************
+There still seems to be memory leak however i am not sure whether it is within
+the Node or is there something in main that i haven't freed
+
+There seems to be 2 more directories called Dir2 & Dir3 that was created in
+/tmp/360test i am not sure if this is intentional howver my program did store
+it and print it. These two directory were created on the same day as the due
+date
+
+I had a bit over challanges with reading and writing through pipes especially
+when i didn't flush with memset on the strings so there was left over data.
+
+I spend 12 Hours finding out why i wasn't reading subdirectories and finally
+after careful research i determined that i wasn't actually getting the
+fullpath thus i had to append the argv[1] with the / directory name.
+
+For the coding style for camelcases i do not know if we should use camelcase or not
+because it wasn't clearly specific so i originally did it in camelcase but then i made the functions
+with like print_tree instead of printTree.
+
+I also got help from these websites to help me with function calls and
+creating the binary search tree.
+********************************************
+Links
+********************************************
+http://man7.org/linux/man-pages/man3/readdir.3.html
+https://linux.die.net/man/3/basename
+http://www.geeksforgeeks.org/binary-tree-set-1-introduction/
+http://www.thegeekstuff.com/2013/02/c-binary-tree/
+https://stackoverflow.com/questions/33715301/inserting-nodes-in-a-binary-search-tree-c
+http://man7.org/linux/man-pages/man3/realpath.3.html
+http://pubs.opengroup.org/onlinepubs/009695399/functions/opendir.html
+https://www.tutorialspoint.com/c_standard_library/c_function_memset.htm
+https://www.tutorialspoint.com/c_standard_library/c_function_strncpy.htm
+https://www.tutorialspoint.com/c_standard_library/c_function_strcmp.htm
+https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+*************************************************
+Special Thanks
+*************************************************
+I would like to thank a few of the Cmpt360 ppl who has contributed toward my assignment
+such as Daniel for tell me to use strcmp instead of having a key value for the binary search tree.
+
+I would like to thank Dillan( i forgot his last name) for helping me debug the read and write pipes problem.
+
+I would like to thank the professor for helping me when i am stuck.
